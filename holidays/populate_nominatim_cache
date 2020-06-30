@@ -76,7 +76,7 @@ def handle_country_holiday_def_file(def_file):
 def handle_nominatim_url(nominatim_url, def_file, state=None):
     LOG.debug('Calling handle_nominatim_url for {}, state: {}'.format(nominatim_url, state))
     level = 'state' if type(state) in [str, int] else 'country'
-    country_code_re = re.match(r'.*?(?P<cc>\w+)\.', def_file)
+    country_code_re = re.match(r'.*?(?P<cc>\w+)\.yaml', def_file)
     country_code = country_code_re.group('cc')
     cache_file = '{}{}.yaml'.format(
         country_code,
